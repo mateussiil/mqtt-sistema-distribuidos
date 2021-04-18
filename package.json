@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": "nodemon publisher.js",
+    "consumer": "nodemon consumer.js"
+  },
+  "dependencies": {
+    "mqtt": "^4.2.6",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
