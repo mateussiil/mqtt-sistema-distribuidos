@@ -18,14 +18,15 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 broker.on('connect', async () => {
     console.log("Conectado no broker MQTT");
     // while (true) {
-    const order = connectionListener()
+    const order = await connectionListener()
     console.log('Seu pedido')
+    console.log(order)
 
     for ([index, item] of order.entries()) {
         console.log((index + 1) + '° - ' + item.name + ' de ' + item.value)
     }
 
-    await broker.publish("sensor-temperatura", JSON.stringify(order));
+    await broker.publish("mqtt", JSON.stringify(order));
     await delay(300); // 5 segundos
     broker.end()
 
